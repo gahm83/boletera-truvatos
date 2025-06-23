@@ -1,0 +1,14 @@
+{
+  "watch": ["src/**/*"],
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "public/**/*",
+    "*.lock",
+    "package*.json"
+  ],
+  "ext": "js,css,woff,woff2",
+  "delay": "1000",
+  "exec": "mix",
+  "verbose": false
+} 

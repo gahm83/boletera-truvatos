@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-black px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors duration-200 text-lg;
+  }
+
+  .input-field {
+    @apply w-full p-2 border rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none text-base;
+  }
+
+  .form-label {
+    @apply block text-base font-medium text-gray-700 mb-1;
+  }
+} 
+
+/* Font Face Declarations */
+@font-face {
+  font-family: 'HYBE';
+  src: url('./fonts/HYBEBold.woff2') format('woff2'),
+      url('./fonts/HYBEBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HYBE';
+  src: url('./fonts/HYBERegular.woff2') format('woff2'),
+      url('./fonts/HYBERegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base Styles */
+body {
+  @apply text-base font-sans;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-hybe;
+}
+
+/* Hide number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Personal Information field styles */
+.form-label {
+  @apply block text-base font-medium text-gray-700 mb-2;
+}
+
+.input-field {
+  @apply w-full h-14 px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent;
+}
+
+:root {
+  --adp-width: 100%;
+  --adp-day-cell-height: auto !important;
+}
+
+/* Time options and calendar cells */
+.time-option,
+.air-datepicker-cell {
+  @apply bg-[#e8e8e8] flex items-center justify-center p-4 border rounded-lg cursor-pointer transition-colors duration-200 font-bold;
+}
+
+.time-option:has(input[type="radio"]:checked),
+.air-datepicker-cell.-selected- {
+  color: #000 !important;
+  font-weight: 600;
+}
+
+.air-datepicker-cell.-day- {
+  aspect-ratio: 1 / 1;
+  border: 0;
+}
+
+.air-datepicker-cell.-other-month- {
+  @apply bg-transparent text-[#7c7c7d];
+}
+
+.air-datepicker-cell.-other-month-.-disabled- {
+  @apply bg-transparent;
+}
+
+/* Hide radio inputs */
+.time-option input[type="radio"] {
+  @apply hidden;
+}
+
+/* Air Datepicker styles */
+.air-datepicker {
+  @apply bg-white rounded-lg shadow-lg;
+  font-family: inherit;
+  border: none;
+  width: 100%;
+  max-width: 500px;
+  font-size: 1.125rem;
+}
+
+.air-datepicker--content {
+  @apply p-0;
+}
+
+.air-datepicker--buttons {
+  border: 0;
+  padding: 0;
+  display: none;
+}
+
+.air-datepicker--cell.-current- {
+  color: #000;
+  font-weight: 600;
+}
+
+.air-datepicker--cell.-disabled- {
+  color: #ccc;
+  background: none;
+  cursor: not-allowed;
+}
+
+.air-datepicker--cell.-in-range- {
+  background-color: rgba(195, 255, 1, 0.2);
+}
+
+.air-datepicker--cell.-range-from- {
+  border-radius: 8px 0 0 8px;
+}
+
+.air-datepicker--cell.-range-to- {
+  border-radius: 0 8px 8px 0;
+}
+
+.air-datepicker--cell.-other-month- {
+  background: none;
+  color: #ccc;
+}
+
+.air-datepicker--nav {
+  @apply border-b border-gray-200 pb-8 mb-8 px-8;
+}
+
+.air-datepicker--nav-title {
+  @apply text-3xl font-semibold;
+  color: #000;
+}
+
+.air-datepicker--nav-action {
+  @apply text-gray-600 hover:text-gray-900;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+}
+
+.air-datepicker--days-names {
+  @apply border-b border-gray-200 pb-6 mb-6 px-8;
+}
+
+.air-datepicker--day-name {
+  @apply text-xl font-medium text-gray-600;
+}
+
+.air-datepicker--cell-day {
+  @apply rounded-lg;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  margin: 5px;
+  font-size: 1.25rem;
+}
+
+.air-datepicker--month-name {
+  @apply text-4xl font-medium;
+  color: #000;
+}
+
+.air-datepicker--year-name {
+  @apply text-4xl font-medium;
+  color: #000;
+}
+
+.air-datepicker--grid {
+  margin: 0 -5px;
+  padding: 0 8px;
+}
+
+.air-datepicker-body--day-name {
+  color: #5551ff !important;
+  aspect-ratio: 3/2;
+  margin: 0;
+}
+
+.air-datepicker-body--day-names {
+  margin: 0;
+}
+
+.air-datepicker.-inline-.custom-datepicker {
+  border: 0;
+  font-size: inherit;
+  width: 100%;
+}
+
+.air-datepicker-body--cells.-days- {
+  grid-auto-rows: auto !important;
+}
+
+/* Form styles */
+.form-column {
+  @apply flex flex-col gap-4;
+}
+
+.form-column-btn {
+  @apply mt-4 w-full;
+}
+
+.form-column-input {
+  @apply w-full h-[62px] px-6 text-sm border border-[#cdcdcd] focus:border-black focus:outline-none rounded-md;
+}
+
+.form-column-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
