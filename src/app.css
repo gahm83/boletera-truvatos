@@ -4,7 +4,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-black px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors duration-200 text-lg;
+    @apply bg-neongreen text-primary flex items-center justify-center h-10 px-6 hover:bg-opacity-90 transition-colors duration-200 text-lg font-hybe;
+  }
+
+  .btn-primary-inverted {
+    @apply bg-primary text-neongreen flex items-center justify-center h-10 px-6 hover:bg-opacity-90 transition-colors duration-200 text-lg font-hybe;
   }
 
   .input-field {
@@ -73,18 +77,24 @@ input[type="number"] {
 /* Time options and calendar cells */
 .time-option,
 .air-datepicker-cell {
-  @apply bg-[#e8e8e8] flex items-center justify-center p-4 border rounded-lg cursor-pointer transition-colors duration-200 font-bold;
+  @apply bg-[#e8e8e8] flex items-center justify-center p-4 rounded-lg cursor-pointer transition-colors duration-200 font-bold;
 }
 
 .time-option:has(input[type="radio"]:checked),
 .air-datepicker-cell.-selected- {
-  color: #000 !important;
-  font-weight: 600;
+  @apply bg-neongreen text-primary font-bold;
 }
 
 .air-datepicker-cell.-day- {
-  aspect-ratio: 1 / 1;
-  border: 0;
+  @apply text-primary aspect-square;
+}
+
+.air-datepicker-cell.-day-.-selected- {
+  @apply bg-neongreen text-primary;
+}
+.time-option:has(input[type="radio"]:checked):hover,
+.air-datepicker-cell.-day-.-selected-:hover {
+  @apply bg-neongreen-light;
 }
 
 .air-datepicker-cell.-other-month- {
@@ -210,15 +220,17 @@ input[type="number"] {
   border: 0;
   font-size: inherit;
   width: 100%;
+  max-width: none;
 }
 
 .air-datepicker-body--cells.-days- {
   grid-auto-rows: auto !important;
+  gap: 10px;
 }
 
 /* Form styles */
 .form-column {
-  @apply flex flex-col gap-4;
+  @apply flex flex-col gap-0;
 }
 
 .form-column-btn {

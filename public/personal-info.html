@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRUVATOS - Personalizar Boletos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/app.css">
+</head>
+<body class="bg-white">
+  <!-- Header -->
+  <header class="absolute w-full z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl">Experiencia <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#7542DA] to-[#9642DA] font-bold">TRUVATOS</span></h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-24">
+    <div class="max-w-3xl mx-auto">
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold mb-2">Personalizar Boletos</h2>
+        <p class="text-gray-600">Por favor, completa la información para cada boleto.</p>
+      </div>
+
+      <!-- Ticket Forms Container -->
+      <div id="ticketFormsContainer" class="space-y-8">
+        <!-- Ticket forms will be added here dynamically -->
+      </div>
+
+      <div class="mt-8 flex justify-between items-center">
+        <button type="button" id="backToReservation" class="btn-primary-inverted">
+          Volver
+        </button>
+        <button type="button" id="submitAllForms" class="btn-primary">
+          Confirmar Boletos
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script src="../src/personal-info.js"></script>
+</body>
+</html>

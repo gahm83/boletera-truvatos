@@ -8,8 +8,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#c3ff01',
-        secondary: '#4a4a4a',
+        primary : '#000000',
+        secondary: '#454546',
+        white: '#FFFFFF',
+        neongreen: '#c3ff01',
+        'neongreen-light': '#D1FF39',
       },
       fontFamily: {
         'hybe': ["HYBE", "sans-serif"],
