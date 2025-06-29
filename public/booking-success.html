@@ -28,8 +28,6 @@
           </svg>
         </span>
       </div>
-    </div>
-    </div>
   </header>
   
   <!-- Hero Section -->
@@ -58,53 +56,126 @@
   </section>
   
   <!-- Map Section -->
-  <div class="container mx-auto"></div>
+  <div class="container mx-auto py-16 lg:py-24">
+    <div class="bg-black rounded-2xl text-white overflow-hidden">
+      <div class="grid grid-cols-12 grid-flow-row">
+        <div class="col-span-7 px-9">
+          <div class="flex flex-col items-stretch justify-center py-8 [&>div:not(:last-child)]:border-b-2 [&>div:not(:last-child)]:border-[#454546]">
+            <div class="flex flex-col items-stretch justify-center [&>p]:py-6">
+              <p>Reserva tu entrada. Selecciona tu fecha y hora preferida para vivir esta experiencia única</p>
+            </div>
+            <div class="grid grid-cols-2 [&>p]:py-6">
+              <p class="font-bold">Horarios de Visita</p>
+              <p>Martes a Domingo, 10 am - 6 pm</p>
+            </div>
+            <div class="grid grid-cols-2 [&>p]:py-6">
+              <p class="font-bold">Ubicación</p>
+              <div>
+                <p>Avenida Patriotismo 229, San Pedro de los Pinos</p>
+                <a href="https://www.google.com/maps/place/Av.+Patriotismo+229,+San+Pedro+de+los+Pinos,+Benito+Ju%C3%A1rez,+03800+Ciudad+de+M%C3%A9xico,+CDMX/@19.4245545,-99.1768998,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1ff4ebb7e6e07:0x4d0dc0c5f9907e5a!8m2!3d19.4245495!4d-99.1743249!16s%2Fg%2F11wmsm0fhd?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center text-neongreen">
+                  <span>Abrir en maps</span>
+                  <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.96299 20.5L4.56299 19.1L16.163 7.5H9.56299V5.5H19.563V15.5H17.563V8.9L5.96299 20.5Z" fill="#AEE300"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-5 relative">
+          <img src="images/location.png" alt="Mapa de ubicación" class="absolute w-full h-full inset-0 object-cover">
+        </div>
+      </div>
+    </div>
+  </div>
   
   <!-- Main Content -->
   <main class="container mx-auto px-4 py-12">
     <div class="grid grid-cols-12 gap-8">
       <!-- Left Column -->
       <div class="col-span-7 space-y-20">
-        <!-- Form Section -->
-        <form id="reservationForm" class="space-y-16 lg:max-w-[500px]">
-          <!-- Personal Information -->
-          <div>
-            <h2 class="text-2xl font-bold mb-2">Tu información</h2>
-            <label class="flex justify-between mb-2 border-b border-black pb-4 mb-4">Información del asistente principal</label>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="col-span-2 form-column">
-                <label for="email" class="form-column-label">Correo electrónico</label>
-                <input type="email" id="email" placeholder="Correo electrónico" class="form-column-input" required>
+        <!-- Personal Information -->
+        <div>
+            <h2 class="text-2xl font-bold mb-2">Reserva Confirmada</h2>
+            <p class="flex justify-between border-b border-black pb-4">Importante: Por favor haz una captura de pantalla de este código QR o guarda el correo electrónico para la entrada al museo.</p>
+            <!-- Aqui empieza el listado de boletos -->
+            <div class="space-y-10 mt-10">
+              <div class="grid grid-cols-2 grid-rows-2 gap-4">
+                <div class="flex flex-col">
+                  <p>Fecha</p>
+                  <p class="font-bold" id="confirmationDate">Martes 20 Julio, 2025</p>
+                </div>
+                <div class="flex flex-col">
+                  <p>Hora</p>
+                  <p class="font-bold" id="confirmationTime">20:30</p>
+                </div>
+                <div class="flex flex-col col-span-2">
+                  <p>Folio:</p>
+                  <p class="font-bold" id="confirmationTickets">6d46e43e-2b25-414f-849f-7eaa793c3fe5</p>
+                </div>
+                <div class="col-span-2"> 
+                  <button type="button" id="goToPersonalInfo" class="btn-primary w-full">Personalizar Boleto</button>
+                </div>
               </div>
-              <div class="form-column">
-                <label for="firstName" class="form-column-label">Nombre</label>
-                <input type="text" id="firstName" placeholder="Nombre" class="form-column-input" required>
+              <div class="grid grid-cols-2 grid-rows-2 gap-4">
+                <div class="flex flex-col">
+                  <p>Fecha</p>
+                  <p class="font-bold" id="confirmationDate">Martes 20 Julio, 2025</p>
+                </div>
+                <div class="flex flex-col">
+                  <p>Hora</p>
+                  <p class="font-bold" id="confirmationTime">20:30</p>
+                </div>
+                <div class="flex flex-col col-span-2">
+                  <p>Folio:</p>
+                  <p class="font-bold" id="confirmationTickets">6d46e43e-2b25-414f-849f-7eaa793c3fe5</p>
+                </div>
+                <div class="col-span-2"> 
+                  <button type="button" id="goToPersonalInfo" class="btn-primary w-full">Personalizar Boleto</button>
+                </div>
               </div>
-              <div class="form-column">
-                <label for="lastName" class="form-column-label">Apellido</label>
-                <input type="text" id="lastName" placeholder="Apellido" class="form-column-input" required>
+              <div class="grid grid-cols-2 grid-rows-2 gap-4">
+                <div class="flex flex-col">
+                  <p>Fecha</p>
+                  <p class="font-bold" id="confirmationDate">Martes 20 Julio, 2025</p>
+                </div>
+                <div class="flex flex-col">
+                  <p>Hora</p>
+                  <p class="font-bold" id="confirmationTime">20:30</p>
+                </div>
+                <div class="flex flex-col col-span-2">
+                  <p>Folio:</p>
+                  <p class="font-bold" id="confirmationTickets">6d46e43e-2b25-414f-849f-7eaa793c3fe5</p>
+                </div>
+                <div class="col-span-2"> 
+                  <button type="button" id="goToPersonalInfo" class="btn-primary w-full">Personalizar Boleto</button>
+                </div>
               </div>
-              <div class="col-span-2 form-column">
-                <label for="phone" class="form-column-label">Teléfono</label>
-                <input type="tel" id="phone" placeholder="Teléfono" class="form-column-input" required>
-              </div>
-              <div class="form-column">
-                <label for="country" class="form-column-label">País</label>
-                <input type="text" id="country" placeholder="País" class="form-column-input" required>
-              </div>
-              <div class="form-column">
-                <label for="ageGroup" class="form-column-label">Grupo de edad</label>
-                <select id="ageGroup" class="form-column-input" required>
-                  <option value="">Selecciona tu edad</option>
-                  <option value="18-25">18-25</option>
-                  <option value="26-35">26-35</option>
-                  <option value="36-45">36-45</option>
-                  <option value="46+">46+</option>
-                </select>
+              <div class="grid grid-cols-2 grid-rows-2 gap-4">
+                <div class="flex flex-col">
+                  <p>Nombre:</p>
+                  <p class="font-bold" id="confirmationTickets">Pedro Molina Navarro</p>
+                </div>
+                <div class="flex flex-col">
+                  <p>Fecha:</p>
+                  <p class="font-bold" id="confirmationTickets">nmpedro99@gmail.com</p>
+                </div>
+                <div class="flex flex-col">
+                  <p>Fecha</p>
+                  <p class="font-bold" id="confirmationDate">Martes 20 Julio, 2025</p>
+                </div>
+                <div class="flex flex-col">
+                  <p>Hora</p>
+                  <p class="font-bold" id="confirmationTime">20:30</p>
+                </div>
+              
+                <div class="col-span-2"> 
+                  <button type="button" id="backToStep1" class="btn-primary-inverted w-full">Descargar Boleto</button>
+                </div>
               </div>
             </div>
-          </div>
-        </form>
+          
+        </div>
         
         <!-- FAQs Section -->
         <div class="space-y-20 lg:max-w-[500px]">
@@ -157,7 +228,7 @@
             </a>
             <a href="#" class="hover:text-pink-400">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
             </a>
             <a href="#" class="hover:text-red-500">

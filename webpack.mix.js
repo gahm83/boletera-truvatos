@@ -1,5 +1,10 @@
 const mix = require('laravel-mix');
 
+/*
+ * Configure watch to prevent loops by:
+ * 1. Being specific about watch paths
+ * 2. Explicitly ignoring output directories
+ */
 mix.js('src/app.js', 'public/src')
   .postCss('src/app.css', 'public/src', [
     require('postcss-nested'),
@@ -19,19 +24,29 @@ mix.js('src/app.js', 'public/src')
   .webpackConfig({
     stats: {
       children: false
+    },
+    watchOptions: {
+      ignored: [
+        '**/node_modules/**',
+        '**/public/**',
+        '**/hot/**',
+        '**/mix-manifest.json'
+      ],
+      followSymlinks: false,
+      aggregateTimeout: 300 // Wait 300ms before rebuilding
     }
+  })
+  .browserSync({
+    proxy: false,
+    server: 'public',
+    files: [
+      'public/**/*.html',
+      'public/src/**/*.css',
+      'public/src/**/*.js',
+      'src/**/*.js',
+      'src/**/*.css'
+    ]
   });
 
-// Disable BrowserSync since it's causing issues
-// .browserSync({
-//   proxy: false,
-//   server: 'public',
-//   files: [
-//     'public/**/*.html',
-//   ],
-//   notify: false,
-//   open: false
-// }); 
-
-// Disable notification
+// Disable notifications
 mix.disableNotifications(); 
