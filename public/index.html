@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.3.5/air-datepicker.min.css">
 </head>
 <body class="bg-white">
-  <!-- Header -->
   <header class="absolute w-full z-50">
     <div class="container mx-auto px-4 py-14 lg:py-20 flex justify-between items-center">
       <h1 class="leading-none max-lg:pt-40% lg:text-2xl lg:flex">
@@ -28,8 +27,6 @@
           </svg>
         </span>
       </div>
-    </div>
-    </div>
   </header>
   
   <!-- Hero Section -->
@@ -51,68 +48,109 @@
   <!-- Marquee Section -->
   <section class="bg-[#5551ff] py-4 overflow-hidden">
     <div class="marquee-container whitespace-nowrap">
-      <div class="marquee-content inline-flex items-center gap-[50px]">
+      <div class="marquee-content inline-flex items-center gap-8">
         <!-- Marquee items will be added dynamically via JavaScript -->
       </div>
     </div>
   </section>
   
-  <!-- Map Section -->
-  <div class="container mx-auto"></div>
-  
   <!-- Main Content -->
   <main class="container mx-auto px-4 py-12">
     <div class="grid grid-cols-12 gap-8">
       <!-- Left Column -->
-      <div class="col-span-7 space-y-20">
+      <div class="col-span-7">
         <!-- Form Section -->
-        <form id="reservationForm" class="space-y-16 lg:max-w-[500px]">
-          <!-- Personal Information -->
+        <form id="reservationForm" class="space-y-20">
+          <!-- Number of Tickets -->
           <div>
-            <h2 class="text-2xl font-bold mb-2">Tu información</h2>
-            <label class="flex justify-between mb-2 border-b border-black pb-4 mb-4">Información del asistente principal</label>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="col-span-2 form-column">
-                <label for="email" class="form-column-label">Correo electrónico</label>
-                <input type="email" id="email" placeholder="Correo electrónico" class="form-column-input" required>
+            <h2 class="text-2xl font-bold mb-2">Número de boletos</h2>
+            <label class="flex justify-between border-b border-black pb-4 mb-4">
+              <span class="block">¿Cuántas personas nos visitaran?</span>
+              <span class="block">(Máximo 4)</span>
+            </label>
+            <div class="grid grid-cols-7 items-center gap-[10px]">
+              <label class="col-span-4">General</label>
+              <button type="button" class="ticket-decrease px-6 py-4 bg-gray-200 rounded aspect-square flex items-center justify-center">
+                <svg class="w-6 h-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path fill="none" stroke="#000000" stroke-linecap="round" stroke-width="2" d="M20 12H4"/>
+                </svg>
+              </button>
+              <input type="number" id="ticketCount" class="block w-full h-full text-center" value="1" min="1" max="10">
+              <button type="button" class="ticket-increase px-6 py-4 bg-gray-200 rounded aspect-square flex items-center justify-center">
+                <svg class="w-6 h-6 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path fill="none" stroke="#000000" stroke-linecap="round" stroke-width="2" d="M12 20v-8m0 0V4m0 8h8m-8 0H4"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Date Selection -->
+          <div>
+            <h2 class="text-2xl font-bold mb-2">Selecciona una fecha</h2>
+            <label class="flex justify-between border-b border-black pb-4 mb-4">¿Qué día quieres hacer tu visita?</label>
+            <div id="datepicker"></div>
+          </div>
+          
+          <!-- Time Selection -->
+          <div>
+            <h2 class="text-2xl font-bold mb-2">Selecciona una hora</h2>
+            <label class="flex justify-between border-b border-black pb-4 mb-4">¿A qué hora quieres asistir?</label>
+            <div class="grid grid-cols-4 gap-[10px]" id="timeSelection">
+              <div>
+                <label class="time-option block px-4 py-3 rounded text-center hover:bg-[#f0f0f0] transition-all cursor-pointer">
+                  <input type="radio" name="time" value="10:00" class="absolute">
+                  <span>10:00</span>
+                </label>
               </div>
-              <div class="form-column">
-                <label for="firstName" class="form-column-label">Nombre</label>
-                <input type="text" id="firstName" placeholder="Nombre" class="form-column-input" required>
+              <div>
+                <label class="time-option block px-4 py-3 rounded text-center hover:bg-[#f0f0f0] transition-all cursor-pointer">
+                  <input type="radio" name="time" value="11:00" class="absolute">
+                  <span>11:00</span>
+                </label>
               </div>
-              <div class="form-column">
-                <label for="lastName" class="form-column-label">Apellido</label>
-                <input type="text" id="lastName" placeholder="Apellido" class="form-column-input" required>
+              <div>
+                <label class="time-option block px-4 py-3 rounded text-center hover:bg-[#f0f0f0] transition-all cursor-pointer">
+                  <input type="radio" name="time" value="12:00" class="absolute">
+                  <span>12:00</span>
+                </label>
               </div>
-              <div class="col-span-2 form-column">
-                <label for="phone" class="form-column-label">Teléfono</label>
-                <input type="tel" id="phone" placeholder="Teléfono" class="form-column-input" required>
+              <div>
+                <label class="time-option block px-4 py-3 rounded text-center hover:bg-[#f0f0f0] transition-all cursor-pointer">
+                  <input type="radio" name="time" value="13:00" class="absolute">
+                  <span>13:00</span>
+                </label>
               </div>
-              <div class="form-column">
-                <label for="country" class="form-column-label">País</label>
-                <input type="text" id="country" placeholder="País" class="form-column-input" required>
+              <div>
+                <label class="time-option block px-4 py-3 rounded text-center hover:bg-[#f0f0f0] transition-all cursor-pointer">
+                  <input type="radio" name="time" value="14:00" class="absolute">
+                  <span>14:00</span>
+                </label>
               </div>
-              <div class="form-column">
-                <label for="ageGroup" class="form-column-label">Grupo de edad</label>
-                <select id="ageGroup" class="form-column-input" required>
-                  <option value="">Selecciona tu edad</option>
-                  <option value="18-25">18-25</option>
-                  <option value="26-35">26-35</option>
-                  <option value="36-45">36-45</option>
-                  <option value="46+">46+</option>
-                </select>
+              <div>
+                <label class="time-option block px-4 py-3 rounded text-center hover:bg-[#f0f0f0] transition-all cursor-pointer">
+                  <input type="radio" name="time" value="15:00" class="absolute">
+                  <span>15:00</span>
+                </label>
+              </div>
+              <div>
+                <label class="time-option block px-4 py-3 rounded text-center hover:bg-[#f0f0f0] transition-all cursor-pointer">
+                  <input type="radio" name="time" value="16:00" class="absolute">
+                  <span>16:00</span>
+                </label>
+              </div>
+              <div>
+                <label class="time-option block px-4 py-3 rounded text-center hover:bg-[#f0f0f0] transition-all cursor-pointer">
+                  <input type="radio" name="time" value="17:00" class="absolute">
+                  <span>17:00</span>
+                </label>
               </div>
             </div>
           </div>
+          
+          <button type="submit" class="form-column-btn btn-primary w-full">
+            Obtener Boletos
+          </button>
         </form>
-        
-        <!-- FAQs Section -->
-        <div class="space-y-20 lg:max-w-[500px]">
-          <h2 class="text-2xl font-bold mb-6">Preguntas Frecuentes</h2>
-          <div class="space-y-4" id="faqAccordion">
-            <!-- FAQ items will be added dynamically -->
-          </div>
-        </div>
       </div>
       
       <!-- Right Column - Sticky Summary -->
@@ -121,8 +159,8 @@
           <h2 class="text-2xl font-bold mb-2">Tus Boletos</h2>
           <p class="mb-2">Este es el día y hora que seleccionaste:</p>
           <p class="mb-6" id="ticketSummary">Selecciona fecha y hora</p>
-          <button class="btn-primary w-full" id="sidebarNextBtn">
-            Continuar
+          <button class="btn-primary w-full">
+            Obtener Boletos
           </button>
           <div class="mt-6 text-sm text-gray-600">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>

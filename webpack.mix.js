@@ -15,12 +15,9 @@ mix.js('src/app.js', 'public/src')
     require('tailwindcss'),
   ])
   .options({
-    processCssUrls: true,
-    postCss: [
-      require('autoprefixer')
-    ]
+    processCssUrls: false
   })
-  .copyDirectory('src/fonts', 'public/src/fonts')
+  .copyDirectory('src/fonts', 'public/fonts')
   .webpackConfig({
     stats: {
       children: false

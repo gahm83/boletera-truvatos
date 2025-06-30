@@ -48,20 +48,24 @@ function initMarquee() {
 
 // DatePicker initialization
 function initDatePicker() {
-    const datepicker = new AirDatepicker("#datepicker", {
+    return new AirDatepicker("#datepicker", {
         inline: true,
         minDate: new Date(2025, 6, 1), // July 1, 2025
         maxDate: new Date(2025, 9, 31), // October 31, 2025
-        onSelect: ({ date }) => {
-            updateTicketSummary();
+        onSelect: () => updateTicketSummary(),
+        onRenderCell: ({ date, cellType }) => {
+            // Only handle month cells
+            if (cellType === 'month') {
+                // Check if month is outside July-October range
+                const month = date.getMonth();
+                const isDisabled = month < 6 || month > 9;
+                
+                return {
+                    disabled: isDisabled,
+                    classes: isDisabled ? 'hidden' : ''
+                };
+            }
         },
-        classes: "custom-datepicker",
-        autoClose: true,
-        buttons: ["clear"],
-        selectedDates: [],
-        view: "days",
-        minView: "days",
-        dateFormat: "d MMMM yyyy",
         locale: {
             days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
             daysShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
@@ -71,7 +75,6 @@ function initDatePicker() {
             today: "Hoy",
             clear: "Limpiar",
             dateFormat: "dd/MM/yyyy",
-            timeFormat: "HH:mm",
             firstDay: 1
         }
     });
@@ -79,20 +82,12 @@ function initDatePicker() {
 
 // Time selection
 function initTimeSelection() {
-    const timeContainer = document.getElementById("timeSelection");
-    const times = Array.from({ length: 8 }, (_, i) => `${i + 10}:00`);
-
-    times.forEach(time => {
-        const label = document.createElement("label");
-        label.className = "time-option";
-        label.innerHTML = `
-            <input type="radio" name="time" value="${time}">
-            <span>${time}</span>
-        `;
-        timeContainer.appendChild(label);
+    const timeInputs = document.querySelectorAll('input[name="time"]');
+    timeInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            updateTicketSummary();
+        });
     });
-
-    timeContainer.addEventListener("change", updateTicketSummary);
 }
 
 // Ticket counter
@@ -128,6 +123,9 @@ function initTicketCounter() {
     });
 
     input.addEventListener("change", () => {
+        let value = parseInt(input.value);
+        value = Math.max(1, Math.min(4, value));
+        input.value = value;
         updateButtonStates();
         updateTicketSummary();
     });

@@ -23,8 +23,8 @@
 /* Font Face Declarations */
 @font-face {
   font-family: 'HYBE';
-  src: url('./fonts/HYBEBold.woff2') format('woff2'),
-      url('./fonts/HYBEBold.woff') format('woff');
+  src: url('/fonts/HYBEBold.woff2') format('woff2'),
+      url('/fonts/HYBEBold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -32,8 +32,8 @@
 
 @font-face {
   font-family: 'HYBE';
-  src: url('./fonts/HYBERegular.woff2') format('woff2'),
-      url('./fonts/HYBERegular.woff') format('woff');
+  src: url('/fonts/HYBERegular.woff2') format('woff2'),
+      url('/fonts/HYBERegular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -69,6 +69,7 @@ input[type="number"] {
   @apply w-full h-14 px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent;
 }
 
+/* Datepicker customization */
 :root {
   --adp-width: 100%;
   --adp-day-cell-height: auto !important;
@@ -112,16 +113,11 @@ input[type="number"] {
 
 /* Air Datepicker styles */
 .air-datepicker {
-  @apply bg-white rounded-lg shadow-lg;
-  font-family: inherit;
-  border: none;
-  width: 100%;
-  max-width: 500px;
-  font-size: 1.125rem;
+  @apply bg-white rounded-lg shadow-lg !border-none !w-full max-w-none !text-lg;
 }
 
 .air-datepicker--content {
-  @apply p-0;
+  @apply !p-0;
 }
 
 .air-datepicker--buttons {
