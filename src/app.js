@@ -136,47 +136,7 @@ function initTicketCounter() {
 
 // FAQ Accordion
 function initFAQAccordion() {
-    const faqs = [
-        {
-            question: "¿Por qué necesito reservar si la entrada es gratuita?",
-            answer: "La reserva nos ayuda a controlar el flujo de visitantes y asegurar una mejor experiencia para todos."
-        },
-        {
-            question: "¿Necesito imprimir el tiquet o puedo mostrarlo desde mi celular?",
-            answer: "Puedes mostrar el tiquet desde tu celular, no es necesario imprimirlo."
-        },
-        {
-            question: "¿Qué pasa si no puedo asistir a la hora reservada?",
-            answer: "Por favor, notifica con anticipación para que podamos reasignar tu espacio."
-        },
-        {
-            question: "¿Puedo asistir sin haber reservado previamente?",
-            answer: "No, es necesario hacer una reserva previa para garantizar tu entrada."
-        },
-        {
-            question: "¿Cuántas personas puedo incluir en una sola reserva?",
-            answer: "Puedes incluir hasta 10 personas en una sola reserva."
-        }
-    ];
-
-    const accordion = document.getElementById("faqAccordion");
-    faqs.forEach(faq => {
-        const item = document.createElement("div");
-        item.className = "overflow-hidden";
-        item.innerHTML = `
-            <button class="w-full text-left flex justify-between items-center relative py-4">
-                <span class="block pr-9">${faq.question}</span>
-                <span class="flex items-center justify-center absolute right-0 w-9 h-9">
-                    <svg class="w-6 h-6 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="none" stroke="#000000" stroke-linecap="round" stroke-width="2" d="M12 20v-8m0 0V4m0 8h8m-8 0H4"/>
-                    </svg>
-                <span>
-            </button>
-            <div class="hidden text-sm text-neutral-600 pb-4">
-                ${faq.answer}
-            </div>
-        `;
-
+    document.querySelectorAll("#faqAccordion > div").forEach(item => {
         const button = item.querySelector("button");
         const content = item.querySelector("div");
         const icon = button.querySelector("svg");
@@ -184,7 +144,7 @@ function initFAQAccordion() {
         button.addEventListener("click", () => {
             const isOpen = content.classList.contains("hidden");
         
-            // Cerrar todos los demás
+            // Close all others
             document.querySelectorAll("#faqAccordion > div").forEach(otherItem => {
                 const otherButton = otherItem.querySelector("button");
                 const otherContent = otherItem.querySelector("div");
@@ -199,7 +159,7 @@ function initFAQAccordion() {
                 }
             });
         
-            // Abrir el actual si estaba cerrado
+            // Open current if it was closed
             if (isOpen) {
                 button.classList.add("border-t", "border-black");
                 content.classList.remove("hidden");
@@ -207,8 +167,6 @@ function initFAQAccordion() {
                 icon.innerHTML = "<path fill=\"none\" stroke=\"#000000\" stroke-linecap=\"round\" stroke-width=\"2\" d=\"M20 12H4\"/>";
             }
         });
-
-        accordion.appendChild(item);
     });
 }
 
