@@ -80,6 +80,9 @@ input[type="number"] {
 .air-datepicker-cell {
   @apply bg-[#e8e8e8] flex items-center justify-center p-4 rounded-lg cursor-pointer transition-colors duration-200 font-bold;
 }
+.air-datepicker-cell {
+  @apply aspect-square
+}
 
 .time-option:has(input[type="radio"]:checked),
 .air-datepicker-cell.-selected- {
@@ -87,7 +90,11 @@ input[type="number"] {
 }
 
 .air-datepicker-cell.-day- {
-  @apply text-primary aspect-square;
+  @apply text-[#666];
+}
+
+.air-datepicker-cell.-day-.-current- {
+  @apply text-primary;
 }
 
 .air-datepicker-cell.-day-.-selected- {
@@ -179,10 +186,10 @@ input[type="number"] {
 }
 
 .air-datepicker--cell-day {
-  @apply rounded-lg;
-  width: 70px;
-  height: 70px;
-  line-height: 70px;
+  @apply rounded-lg p-2;
+  width: auto;
+  height: auto;
+  line-height: normal;
   margin: 5px;
   font-size: 1.25rem;
 }
@@ -220,6 +227,7 @@ input[type="number"] {
 }
 
 .air-datepicker-body--cells.-days- {
+  grid-template-columns: repeat(auto-fill, minmax(14%, 1fr)) !important;
   grid-auto-rows: auto !important;
   gap: 10px;
 }

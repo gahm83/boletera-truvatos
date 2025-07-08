@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 
+mix.setPublicPath('public');
+
 /*
  * Configure watch to prevent loops by:
  * 1. Being specific about watch paths
