@@ -4,11 +4,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-neongreen text-primary flex items-center justify-center h-10 px-6 hover:bg-opacity-90 transition-colors duration-200 text-lg font-hybe;
+    @apply bg-neongreen text-primary flex items-center justify-center h-12 px-6 hover:bg-opacity-90 transition-colors duration-200 text-lg font-hybe;
   }
 
   .btn-primary-inverted {
-    @apply bg-primary text-neongreen flex items-center justify-center h-10 px-6 hover:bg-opacity-90 transition-colors duration-200 text-lg font-hybe;
+    @apply bg-primary text-neongreen flex items-center justify-center h-12 px-6 hover:bg-opacity-90 transition-colors duration-200 text-lg font-hybe;
   }
 
   .input-field {
@@ -81,7 +81,7 @@ input[type="number"] {
   @apply bg-[#e8e8e8] flex items-center justify-center p-4 rounded-lg cursor-pointer transition-colors duration-200 font-bold;
 }
 .air-datepicker-cell {
-  @apply aspect-square
+  @apply aspect-square p-0;
 }
 
 .time-option:has(input[type="radio"]:checked),
@@ -211,8 +211,8 @@ input[type="number"] {
 
 .air-datepicker-body--day-name {
   color: #5551ff !important;
-  aspect-ratio: 3/2;
   margin: 0;
+  height: 40px;
 }
 
 .air-datepicker-body--day-names {
@@ -227,9 +227,8 @@ input[type="number"] {
 }
 
 .air-datepicker-body--cells.-days- {
-  grid-template-columns: repeat(auto-fill, minmax(14%, 1fr)) !important;
+  grid-template-columns: repeat(7,1fr) !important;
   grid-auto-rows: auto !important;
-  gap: 10px;
 }
 
 /* Form styles */
