@@ -69,16 +69,24 @@
         <div class="px-8 lg:col-span-7">
           <div class="flex flex-col items-stretch justify-center [&>div:not(:last-child)]:border-b-2 [&>div:not(:last-child)]:border-[#454546]">
             <div class="flex flex-col items-stretch justify-center py-6">
-              <p>Reserva tu entrada. Selecciona tu fecha y hora preferida para vivir esta experiencia única</p>
+              <p class="text-xl">Experiencia HYBE</p>
+              <p>Ubicado dentro del Parque Bicentenario</p>
             </div>
-            <div class="flex flex-col lg:grid lg:grid-cols-2 py-6">
-              <p class="font-bold">Horarios de Visita</p>
-              <p>Martes a Domingo, 10 am - 6 pm</p>
+            <!-- <div class="flex flex-col lg:grid lg:grid-cols-2 py-6"> -->
+            <div class="flex flex-col lg:grid lg:grid-cols-12 py-6">
+              <div class="col-span-5">
+                <p class="font-bold">Horarios de Visita</p>
+              </div>
+              <div class="col-span-7">
+                <p>Lunes a Viernes, 10 am - 5 pm</p>
+              </div>
             </div>
-            <div class="flex flex-col lg:grid lg:grid-cols-2 py-6">
-              <p class="font-bold">Ubicación</p>
-              <div>
-                <p>Avenida Patriotismo 229, San Pedro de los Pinos</p>
+            <div class="flex flex-col lg:grid lg:grid-cols-12 py-6">
+              <div class="col-span-5">
+                <p class="font-bold">Ubicación</p>
+              </div>
+              <div class="col-span-7">
+                <p>Refinería 18 de Marzo, Miguel Hidalgo, 11210, CDMX</p>
                 <a href="https://www.google.com/maps/place/Av.+Patriotismo+229,+San+Pedro+de+los+Pinos,+Benito+Ju%C3%A1rez,+03800+Ciudad+de+M%C3%A9xico,+CDMX/@19.4245545,-99.1768998,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1ff4ebb7e6e07:0x4d0dc0c5f9907e5a!8m2!3d19.4245495!4d-99.1743249!16s%2Fg%2F11wmsm0fhd?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center text-neongreen">
                   <span>Abrir en maps</span>
                   <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -197,17 +205,30 @@
       
       <!-- Right Column - Sticky Summary -->
       <div class="max-lg:row-start-1 lg:col-span-5 lg:col-start-8">
-        <div class="bg-white lg:sticky lg:top-24 lg:p-6 lg:rounded-md lg:shadow-lg">
+        <div class="lg:sticky lg:top-24 lg:pl-6 lg:border-l lg:border-black/30">
+          <div class="lg:sticky lg:top-24 lg:pL-6">
           <h2 class="text-2xl font-bold mb-2">Tus Boletos</h2>
           <p class="mb-2">Este es el día y hora que seleccionaste:</p>
           <p class="mb-6" id="ticketSummary">Selecciona fecha y hora</p>
-          <button class="btn-primary w-full">
-            Obtener Boletos
+          <button class="btn-primary w-full" onClick='javascript:submit_form()'>
+            <span>Reservar</span>
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="18"
+                 height="18"
+                 viewBox="0 0 15 15">
+              <path fill="#000000" fill-rule="evenodd" d="M12 2h1.5A1.5 1.5 0 0 1 15 3.5v10a1.5 1.5 0 0 1-1.5 1.5h-12A1.5 1.5 0 0 1 0 13.5v-10A1.5 1.5 0 0 1 1.5 2H3V0h1v2h7V0h1zM6 8H3V7h3zm6-1H9v1h3zm-6 4H3v-1h3zm3 0h3v-1H9z" clip-rule="evenodd" />
+            </svg>
           </button>
-          <div class="mt-6 text-sm text-gray-600">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <div class="mt-6 p-6 bg-[#E8E8E8] text-sm">
+            <h2 class="font-sans font-bold text-lg mb-3">Reglas de Reserva</h2>
+            <p class="text-black/50">Por favor revisa nuestras políticas antes de reservar</p>
+            <ul class="mt-4">
+              <li>Máximo 4 boletos por reserva.</li>
+              <li>Trae tu código QR impreso o en tu teléfono.</li>
+              <li>Si llegas después de tu horario programado, tendrás que volver a hacer una reserva.</li>
+            </ul>
           </div>
+        </div>
         </div>
       </div>
     </div>
