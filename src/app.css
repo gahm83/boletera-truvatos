@@ -47,10 +47,6 @@ body {
   @apply text-base font-sans;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-hybe;
-}
-
 /* Hide number input arrows */
 [type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -239,7 +235,7 @@ input[type="number"] {
 
 /* Form styles */
 .form-column {
-  @apply flex flex-col gap-0;
+  @apply flex flex-col gap-4;
 }
 
 .form-column-btn {
