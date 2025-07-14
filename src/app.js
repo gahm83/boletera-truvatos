@@ -2,10 +2,10 @@
 function initMarquee() {
     const marqueeContent = document.querySelector(".marquee-content");
     const items = [
-        { date: "Jul 1 - Oct 31" },
-        { date: "Jul 1 - Oct 31" },
-        { date: "Jul 1 - Oct 31" },
-        { date: "Jul 1 - Oct 31" }
+        { date: "Jul 17 - Oct 31" },
+        { date: "Jul 17 - Oct 31" },
+        { date: "Jul 17 - Oct 31" },
+        { date: "Jul 17 - Oct 31" }
     ];
 
     const logoSvg = `<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
